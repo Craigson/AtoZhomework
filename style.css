@@ -26,6 +26,7 @@ margin-right: 10px;
 #instructions {
     line-height: 70%;
 }
+
 #header {
     font-size:100%;
     text-align: center;
@@ -38,6 +39,8 @@ margin-right: 10px;
 
 #result {
     font-family: 'Rouge Script', cursive;
+    background: black;
+    font-color: white;
     font-size:2em;
     text-align: center;
     padding-left: 20%;
