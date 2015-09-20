@@ -39,12 +39,14 @@ margin-right: 10px;
 
 #result {
     font-family: 'Rouge Script', cursive;
-    background: black;
-   color: white;
+    background: grey;
+    color: white;
     font-size:2em;
     text-align: center;
     padding-left: 20%;
     padding-right: 20%;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 #img {
