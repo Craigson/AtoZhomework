@@ -3,8 +3,8 @@
  body {
     margin:5px;
     padding:5px;
-    width:100%;
-    font-family: 'Economica', sans-serif;
+    width:95%;
+    font-family: 'Abel', sans-serif;
     font-size:80%;
     text-align: center; 
     background-position: left bottom;
@@ -14,6 +14,18 @@
    
 }
 
+body {
+text-align: left;
+padding: 10px;
+font-size: 1.5em;
+margin-left: 10px;
+margin-right: 10px;
+
+}
+
+#instructions {
+    line-height: 70%;
+}
 #header {
     font-size:100%;
     text-align: center;
@@ -24,14 +36,17 @@
     padding-bottom: 50px;
 }
 
-#container {
-text-align: left;
-padding: 10px;
-font-size: 1.5em;
-margin-left: 10px;
-margin-right: 10px;
+#result {
+    font-family: 'Rouge Script', cursive;
+    font-size:2em;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
+#img {
+    padding-left: 20%;
+}
 h1 {
     font-size: 1.2em;
 }
