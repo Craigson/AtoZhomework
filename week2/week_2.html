@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Jumble</title>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+    <title>Jumble</title>
+    
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <script src="libraries/rita-full.js" type="text/javascript"></script>
+    
+        <script src="sketch.js" type="text/javascript"></script>
+
+    <style> 
+    body {padding: 10; margin: 10;}
+    canvas {vertical-align: top;} 
+    #sources {padding-top: 30px; display: inline-block;}
+    
+    </style>
+  
+  </head>
+  
+  <body>
+    <h1>Place text from two separate sources to create a mashup.</h1>
+    <h3>Adjust the slider to increase the weighting of either source</h3>
+
+    <h3>Week 2: Progress thus far...<h3>
+    <p><em>Perhaps I bit of more than I could chew for week 2's assignment, seeing as the vast majority of my sticking points were easily overcome by the use of regex.  The gist of the webapp is to take two different pieces of text and to "jumble" them up to create a new, and hopefully coherent, text. The slider allows the user to select the ratio of how much of each story to mix into the result.  Selecting an 80:20 (A:B) ratio will result in 4x more content from source A than from Source B.</em></p>
+
+    <p><em>The algorithm works by breaking each source text into its constituent parts of speech.  The text with the heigher weighting in the Jumble Ratio is used as the base text.  The algorithm loops over every word in the base text and replaces each word with a word with the same part of speech from the other text.</em></p>
+
+    <p><em>I'm at the point where I've broken down each source into elements of parts of speech, I simply need to figure out how to replace the necessary words and recombine them into a final result. </em></p>
+
+    <p>There are plenty of free books available as plain text over at <em><a href="https://www.gutenberg.org/">Project Gutenberg</a></em></p>
+    <p>
+      <input id = "percentslider" type="range" min="10" max="90" value ="50"></input></br>
+      Jumble Ratio (A:B) is <span id = "percentA">50</span>:<span id ="percentB">50</span><br>
+    </p>
+
+
+   <div id = "sources">
+      <p>Source A:</p>
+      <textarea id = "sourceA" rows = "10" cols = "100">Paste in some text from a source</textarea><br/>
+      <p>Source B:</p>
+      <textarea id = "sourceB" rows = "10" cols = "100">Paste in some text from a different source</textarea><br/>
+      <button id = "submit">Jumble</button>
+
+    </div>
+
+    <p><button id = "clear">clear</button></p>
+  </body>
+</html>
