@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Jumble</title>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+    <title>Jumble</title>
+    
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <script src="libraries/rita-full.js" type="text/javascript"></script>
+    
+        <script src="script.js" type="text/javascript"></script>
+
+    <style> 
+    body {padding: 10; margin: 10;}
+    canvas {vertical-align: top;} 
+    #sources {padding-top: 30px; display: inline-block;}
+    
+    </style>
+  
+  </head>
+  
+  <body>
+    <h1>Place text from two separate sources to create a mashup.</h1>
+
+    <p>Read more about the project <em><a href="/about.html"> here </em></a></p>
+    <h3>Adjust the slider to increase the weighting of either source</h3>
+
+
+    <p>There are plenty of free books available as plain text over at <em><a href="https://www.gutenberg.org/">Project Gutenberg</a></em> and <em><a href ="http://textfiles.com/stories/"> here </a></em></p>
+    <p>
+      <input id = "percentslider" type="range" min="10" max="90" value ="50"></input></br>
+      Jumble Ratio (A:B) is <span id = "percentA">50</span>:<span id ="percentB">50</span><br>
+    </p>
+
+
+   <div id = "sources">
+      <p>Source A:</p>
+      <textarea id = "sourceA" rows = "10" cols = "100">Once upon a time . . . a long time ago, there was a thick jungle where many kinds of animals lived in harmony together. Their ruler was a wise old lion. But one sad day, the king died and the animals had to decide who was to be their new ruler.The dead king had a gold crown, encrusted with precious gems, and it was decided that all the candidates for the throne were to come forward and each would try on the crown, and the ruler would be the animal whose head it fitted. Now, though many tried on the crown, it fitted no one. Some heads were too big, others too small, a few had horns and some had big ears. The fact was that the old king's crown did not fit any of the animals. Then a cheeky monkey snatched up the crown and started to amuse the crowd with clever tricks. First, he slipped the crown round his waist and whirled it round and round his middle without letting it fall to the ground. Then he tossed it higher and higher into the air and caught it as it came down. He then stood onhis head and twirled the crown on the tips of his toes, before jumping to his 
+feet again and catching it in his hands. All the animals laughed delightedly at the nimble monkey's skill and clapped in excitement. Pleased at the great applause, the monkey went on with his show, till the enthusiastic crowd decided to award him the crown and proclaim him king.   The only animal to disagree was the fox. "A silly creature like that can't be our king!" he said. "I'm going to do all I can to make him lose the throne."   One day, having just managed to avoid a trap that men had set at the edge of the jungle, the fox took it unseen to the tree where the monkey lived. Covering the trap with dead leaves, the fox picked a large bunch of bananas and called up to the monkey: "Sire! Sire! Can you help me? I have some ripe bananas I'd like to present you with, but I can't climb trees as easily as youdo! Would you please come down and accept my gift?" The unsuspecting monkey shinned down the tree, and just as he reached for the bananas, the trap suddenly clamped shut over his legs. The fox began to laugh: "What a foolish king we have! Fancy falling into a trap for a handful of bananas!" And calling all the other animals, he went on: "Just look at our sovereign! Isn't he stupid? He can't even avoid being caught in a trap. If he isn't able to watch out for himself, how can we expect him to look after us?" All the animals let themselves be persuaded by the fox's words, and in a twinkling the monkey king was deprived of the crown. And from that day on, this particular jungle was the only one whose animals made do without a king.</textarea><br/>
+      <p>Source B:</p>
+      <textarea id = "sourceB" rows = "10" cols = "100">The Tau-Epsilon star system was remote even by Star Fleet standards, of course this was one of the reasons it was chosen. It was also a very crowded system with twelve planets and 6 different asteroid belts.  The five innermost planets were 'rocks' with the rest being gas giants.  The system also had a very uneven planetary plane making theinner planets a little bit more difficult to approach.    The fourth planet from the yellow Tau-Epsilon sun had abarely breathable atmosphere.  In years past there had been a small mining operation on the planet but it had been abandoned for a more profitable system.  The habitats left behind, however, had made a great base camp for the project now nearing completion.    Star Fleet didn't normally make a habit of constructing a star ship in such a remote location.  This ship, however, was extremely unique not only in its design but also in its mission.    The flat black of the space dock girders hung in a closeorbit around TE-4.  Inside the frame work was a truly different star ship.  The large saucer section and warp engines made it unmistakably Star Fleet.  The saucer section was obviously old, even the lowest cadet at the academy would know that it shouldn't be tied to the new style warp engines especially four of them.  There were a number other things that a trained eye would pick out wrong with this ship.  Some that shouldn't be on a saucer section that old and others that simply were not Star Fleet standard.
+   </textarea><br/>
+      <button id = "submit">Jumble</button>
+
+    </div>
+
+   <!-- <p><button id = "clear">clear</button></p> !-->
+
+    <div id = "result"> </div>
+  </body>
+</html>

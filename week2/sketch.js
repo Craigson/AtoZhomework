@@ -120,16 +120,16 @@ function replaceWords(dest, src) {
 
   //LOOP THROUGH ALL WORDS IN BASE TEXT
   console.log(typeof(dest));
-  console.log(dest.length);
-  console.log(dest[0]);
+  // console.log(dest.length);
+  // console.log(dest[0]);
 
   var destArray = splitToWords(dest, delimitersForWords);
 
-  console.log(destArray);
+  //console.log(destArray.length);
 
   for (var i = 0; i < dest.length; i++) {
     if (dest[i] != "." || dest[i] != "!" || dest[i] != "?" || dest[i] != ' ') {
-      var rndm = Math.random(100);
+      var rndm = Math.floor(Math.random()*100);
 
       if (rndm < percentOfA) {
         var keyToChange = RiTa.getPosTags(dest[i])[0]
@@ -138,8 +138,8 @@ function replaceWords(dest, src) {
           if (src.hasOwnProperty(thisKey)) {
             if (thisKey == keyToChange) {
               var lengthOfValues = src[thisKey].length;
-              var randomValue = Math.round(Math.random(lengthOfValues));
-              console.log(randomValue);
+              var randomValue = Math.floor(Math.random(lengthOfValues));
+       //       console.log(randomValue);
               
               // var valueToSwap = src.thisKey[Math.round(randomValue)];
               // console.log(valueToSwap);
