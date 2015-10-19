@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Jumble</title>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+    <title>Jumble</title>
+    
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <script src="libraries/rita-full.js" type="text/javascript"></script>
+
+    <script src="script.js" type="text/javascript"></script>
+    <link href="style.css" type="text/css" rel="stylesheet"></link>
+    <link href='https://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
+  
+  </head>
+  
+  <body>
+    <h1>Create a unique story by mashing together two separate text sources</h1>
+
+    <p>There are plenty of free books available as plain text over at <em><a href="https://www.gutenberg.org/">Project Gutenberg</a></em> and <em><a href ="http://textfiles.com/directory.html"> here </a></em></p>
+    <div id = "jumble_slider">
+      <p id="instruction"> Adjust the slider to determine what percentage of each text source is used to create the mashup</p>
+      <p>
+        <input id = "percentslider" type="range" min="10" max="90" value ="50"></input></br>
+        Jumble Ratio (A:B) is <span id = "percentA">50</span>:<span id ="percentB">50</span><br>
+      </p>
+    </div>
+
+
+  <div id = "sources">
+      <p>Source A:</p>
+      <select id = "listA" class="dropdown" onchange = "loadA()">
+        <option>Select a source...</option>
+        <option value = "children_pigs"> Childrens' Stories - The Three Little Pigs </option>
+        <option value = "scifi_space"> Science Fiction - Space </option>
+        <option value = "scifi_clones"> Science Fiction - Clones</option>
+        <option value = "bible_creation"> Bible Stories - Creation</option>
+        <option value = "bible_jacob_dream"> Bible Stories - Jacob's Amazing Dream</option>
+        <option value = "bible_sg"> Bible Stories - Sodom and Gomorrah</option>
+        <option value = "erotic_swingers"> Erotic Fiction - Swingers</option>
+        <option value = "erotic_neighbours"> Erotic Fiction - Neighbours</option>
+        <option value = "jedi"> Fantasy - Code of the Jedi</option>
+
+      </select>
+
+      <p class = "centerMe"> -- select a source text from the dropdown menu, or paste in some text of your own -- </p>
+
+      <textarea id = "sourceA" rows = "10" cols = "100"></textarea><br/>
+      <p>Source B:</p>
+
+      <select id ="listB" class = "dropdown" onchange = "loadB()">
+        <option>Select a source...</option>
+        <option value = "children_pigs"> Childrens' Stories - The Three Little Pigs </option>
+        <option value = "scifi_space"> Science Fiction - Space </option>
+        <option value = "scifi_clones"> Science Fiction - Clones</option>
+        <option value = "bible_creation"> Bible Stories - Creation</option>
+        <option value = "bible_jacob_dream"> Bible Stories - Jacob's Amazing Dream</option>
+        <option value = "bible_sg"> Bible Stories - Sodom and Gomorrah</option>
+        <option value = "erotic_swingers"> Erotic Fiction - Swingers</option>
+        <option value = "erotic_neighbours"> Erotic Fiction - Neighbours</option>
+        <option value = "jedi"> Fantasy - Code of the Jedi</option>
+      </select>
+
+      <p class = "centerMe"> -- select a source text from the dropdown menu, or paste in some text of your own -- </p>
+
+    <textarea id = "sourceB" rows = "10" cols = "100"></textarea><br/>
+
+    <button id = "submit">Jumble</button>
+
+  </div>
+
+   <!-- <p><button id = "clear">clear</button></p> !-->
+
+    <div id = "result"> </div>
+  </body>
+</html>
