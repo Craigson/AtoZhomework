@@ -36,31 +36,29 @@ var jedi_lines,creation_lines, jacob_lines, sg_lines, pigs_lines, neighbour_line
 function preload()
 {
   //LOAD THE SOURCE TEXTS BEFORE THE PAGE LOADS
-  creation_lines = loadStrings("texts/bible_creation.txt" );
-  jacob_lines = loadStrings("texts/bible_jacob_dream.txt");
-  sg_lines = loadStrings("texts/bible_sg.txt ");
-  pigs_lines = loadStrings("texts/children_pigs.txt");
-  neighbour_lines = loadStrings("texts/erotic_neighbour.txt ");
-  swingers_lines = loadStrings("texts/erotic_swingers.txt ");
-  clone_lines = loadStrings("texts/scifi_clones.txt ");
-  space_lines = loadStrings("texts/scifi_space.txt");
-  jedi_lines = loadStrings("texts/fantasy_jedi.txt");
-  erotic_neighbours = loadStrings("texts/erotic_neighbour.txt");
-  erotic_swingers = loadStrings("texts/erotic_swingers.txt");
+  bible_creation = loadStrings("texts/bible_creation.txt" );
+  bible_jacob_dream = loadStrings("texts/bible_jacob_dream.txt");
+  bible_sg = loadStrings("texts/bible_sg.txt ");
+  children_pigs = loadStrings("texts/children_pigs.txt");
+  erotic_neighbour = loadStrings("texts/erotic_neighbour.txt ");
+  erotic_swingers = loadStrings("texts/erotic_swingers.txt ");
+  scifi_clones = loadStrings("texts/scifi_clones.txt ");
+  scifi_space = loadStrings("texts/scifi_space.txt");
+  jedi = loadStrings("texts/fantasy_jedi.txt");
 }
 
 function setup() 
 {
   //CREATE STRINGS FROM THE SOURCE TEXTS
-  bible_creation = join(creation_lines);
-  bible_jacob_dream = join(jacob_lines);
-  bible_sg = join(sg_lines);
-  children_pigs = join(pigs_lines);
-  erotic_swingers = join(swingers_lines);
-  erotic_neighbour = join(neighbour_lines);
-  scifi_space = join(space_lines);
-  scifi_clones = join(clone_lines);
-  jedi = join(jedi_lines);
+  bible_creation.join(" ");
+  bible_jacob_dream.join(" ");
+  bible_sg.join(" ");
+  children_pigs.join(" ");
+  erotic_swingers.join(" ");
+  erotic_neighbour.join(" ");
+  scifi_space.join(" ");
+  scifi_clones.join(" ");
+  jedi.join(" ");
 
 
   noCanvas();
