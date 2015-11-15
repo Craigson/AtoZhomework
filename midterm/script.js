@@ -48,7 +48,7 @@ var filenames = [ "creation",
 
 var files = [ "texts/bible_creation.txt", 
               "texts/bible_jacob_dream.txt",
-              "texts/bible_sg.txt", 
+              "texts/bible_SG.txt", 
               "texts/children_pigs.txt", 
               "texts/erotic_neighbour.txt",
               "texts/erotic_swingers.txt",
