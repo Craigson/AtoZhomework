@@ -30,25 +30,63 @@ var delimitersForElements = " .,:;!@#$%&*()\n";
 var result = "";
 
 //VARIABLES FOR STORING PRE-LOADED TEXT
+/*
 var jedi,bible_creation, bible_jacob_dream, bible_sg, children_pigs, erotic_neighbours, erotic_swingers, scifi_clones, scifi_space; 
 var jedi_lines,creation_lines, jacob_lines, sg_lines, pigs_lines, neighbour_lines, swingers_lines, clone_lines, space_lines;
+*/
 
-function preload()
-{
-  //LOAD THE SOURCE TEXTS BEFORE THE PAGE LOADS
-  bible_creation = loadStrings("texts/bible_creation.txt" );
-  bible_jacob_dream = loadStrings("texts/bible_jacob_dream.txt");
-  bible_sg = loadStrings("texts/bible_sg.txt ");
-  children_pigs = loadStrings("texts/children_pigs.txt");
-  erotic_neighbour = loadStrings("texts/erotic_neighbour.txt ");
-  erotic_swingers = loadStrings("texts/erotic_swingers.txt ");
-  scifi_clones = loadStrings("texts/scifi_clones.txt ");
-  scifi_space = loadStrings("texts/scifi_space.txt");
-  jedi = loadStrings("texts/fantasy_jedi.txt");
-}
+var filenames = [ "creation", 
+                  "dream", 
+                  "sodom", 
+                  "threePigs", 
+                  "neighbour",
+                  "swingers",
+                  "clones",
+                  "space",
+                  "jedi"
+                  ]
 
-function setup() 
+var files = [ "texts/bible_creation.txt", 
+              "texts/bible_jacob_dream.txt",
+              "texts/bible_sg.txt", 
+              "texts/children_pigs.txt", 
+              "texts/erotic_neighbour.txt",
+              "texts/erotic_swingers.txt",
+              "texts/scifi_clones.txt",
+              "texts/scifi_space.txt",
+              "texts/fantasy_jedi.txt"
+              ]
+
+var rawData = [];
+
+var fileCount = 0;
+
+function loadTexts(filename, index)
 {
+
+
+
+  loadStrings(filename, loaded);
+
+  function loaded(data)
+  {
+    rawData[index] = data.join(" ");
+    fileCount++;
+
+    if (fileCount == files.length)
+    {
+      console.log("files loaded");
+    }
+  }
+
+
+
+ // erotic_neighbour = loadStrings("texts/erotic_neighbour.txt ");
+  //erotic_swingers = loadStrings("texts/erotic_swingers.txt ");
+  //scifi_clones = loadStrings("texts/scifi_clones.txt ");
+  // scifi_space = loadStrings("texts/scifi_space.txt");
+  // jedi = loadStrings("texts/fantasy_jedi.txt");
+/*
   //CREATE STRINGS FROM THE SOURCE TEXTS
   bible_creation.join(" ");
   bible_jacob_dream.join(" ");
@@ -59,6 +97,25 @@ function setup()
   scifi_space.join(" ");
   scifi_clones.join(" ");
   jedi.join(" ");
+  */
+
+
+}
+
+// function animate()
+// {
+//   var count = 0;
+
+//   function increment(){
+//     count = (count + 1) % 100;
+//   }
+
+//   return setInterval(increment, 25);
+// }
+
+function setup() 
+{
+
 
 
   noCanvas();
@@ -82,6 +139,14 @@ function setup()
 
   //ADD EVENTLISTENER FOR THE SLIDER
   slider.elt.addEventListener('input', changePercent);
+
+  for (var i = 0; i < files.length; i++)
+  {
+    loadTexts(files[i], i);
+    console.log("should be loading texts");
+  }
+
+
 }
 
 //DEFINE METHODS FOR POPULATING THE TEXT BOXES IF THE USER CHOOSES
@@ -89,16 +154,35 @@ function setup()
 function loadA()
 {
   var list = document.getElementById("listA");
-  var source = list.options[list.selectedIndex].value;
-  console.log(source);
-  sourceA.html(eval(source));
+  var listValue = list.options[list.selectedIndex].value;
+  console.log("selected: " +listValue);
+  var source = " ";
+  for (var i = 0; i < filenames.length; i++)
+  {
+    if (listValue == filenames[i])
+    {
+      source = rawData[i];
+      console.log(source);
+    }
+  }
+  sourceA.html(source); 
 }
 
 function loadB()
 {
   var list = document.getElementById("listB");
-  var source = list.options[list.selectedIndex].value;
-  sourceB.html(eval(source));
+  var listValue = list.options[list.selectedIndex].value;
+  var source = " ";
+
+   for (var i = 0; i < filenames.length; i++)
+  {
+    if (listValue == filenames[i])
+    {
+      source = rawData[i];
+      console.log(source);
+    }
+  }
+  sourceB.html(source);
 }
   
 //FUNCTION FOR MAKING USE OF SLIDER VALUES
