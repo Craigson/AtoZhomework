@@ -25,6 +25,7 @@ var partsOfSpeechA, partsOfSpeechB;
 //DEFINE DELIMITERS FOR SPLITTING TEXT INTO SENTENCES/WORDS.
 var delimitersForWords = " .,:;!@#$%&*()\n";
 var delimitersForElements = " .,:;!@#$%&*()\n";
+var delimitersForSentences = ".!?\n";
 
 //STRING FOR STORING THE FINAL RESULT OF THE JUMBLED TEXT
 var result = "";
@@ -60,6 +61,9 @@ var files = [ "texts/bible_creation.txt",
 var rawData = [];
 
 var fileCount = 0;
+
+var markov;
+
 
 function loadTexts(filename, index)
 {
@@ -249,26 +253,6 @@ function jumbleSources() {
 
   var sentenceArray = RiTa.splitSentences(sourceTextA);
   console.log(sentenceArray);
-
-//   var wordsA = splitToWords(sourceTextA);
-//   var wordsB = splitToWords(sourceTextB);
-
-
-
-// rm = new RiMarkov(2);
-
-// for (var i = 0; i < wordsA.length; i++){
-//  rm.loadTokens(wordsA[i]);
-// }
-
-// console.log(rm);
-
-
-// var sentences = rm.generateSentences(10);
-
-// for (var i = 0; i < sentences.length; i++) {
-//   println(sentences[i]);
-// }
   
 
   //CREATE AN ALERT IF EITHER SOURCE IS LEFT BLANK
@@ -284,7 +268,10 @@ function jumbleSources() {
     formattedSourceTextB = sourceTextB.replace(/\n/g, ' ');
     formattedSourceTextB = formattedSourceTextB.replace(/\s{2,20}/, ' '); 
 
+    //CREATE OUTPUT BY GENERATING MARKOV CHAINS FROM BOTH SOURCE TEXTS
+    generate(formattedSourceTextA, formattedSourceTextB);
 
+    /*
     var destinationText, words, replacementPOS, threshold;
 
     if (percentOfA <= 50){
@@ -299,6 +286,7 @@ function jumbleSources() {
 
     console.log(threshold);
 
+    
     //CREATE AN OBJECT THAT CONTAINS A LIST OF PARTS OF SPEECH AS KEYS, WITH EACH VALUE BEING AN
     //ARRAY THAT CONTAINS ALL THE RELATIVE WORDS FROM THE SOURCE TEXT
     replacementPOS = createPOSlist(words);
@@ -341,9 +329,52 @@ function jumbleSources() {
 resultText.html(resString);
     }
 
-    
+    */
+
+  }
 } // END OF jumbleSources()
 
+
+function generate(srcA, srcB)
+{
+    var linesA, linesB;
+
+    linesA = splitToSentences(srcA, delimitersForSentences);
+    linesB = splitToSentences(srcB, delimitersForSentences);
+
+    console.log("linesA length: " + linesA.length);
+    console.log("linesB length: " + linesB.length);
+
+    // Make the markov generator each time we generate text!
+    markov = new MarkovGenerator(5, 5000);
+
+    // How many times should we repeat input B
+    var repeat = floor(slider.value() / 10);
+
+    // Repeat A the inverse of B
+    var totalA = 100 - repeat;
+    var totalB = repeat;
+
+    
+    // Feed input A totalA times to the generator
+    for (var n = 0; n < totalA; n++) {
+      for (var i = 0; i < linesA.length; i++) {
+        markov.feed(linesA[i]); 
+      }
+    }
+
+    // Feed input B totalB times to the generator
+    for (var n = 0; n < totalB; n++) {
+      for (var i = 0; i < linesB.length; i++) {
+        markov.feed(linesB[i]); 
+      }
+    }
+
+    // Generate some text and show it
+    var generated = markov.generate();
+
+    resultText.html(generated);
+}
 
 
 //OVERWRITE P5 FUNCTION WITH DAN'S SPLIT_TOKENS

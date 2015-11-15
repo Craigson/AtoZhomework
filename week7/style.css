@@ -1,0 +1,79 @@
+body
+{
+	padding: 10; margin: 10;
+	font-family: monospace;
+}
+
+canvas 
+{
+	vertical-align: top;
+} 
+
+h1
+{
+	font-family: 'Bad Script', cursive;
+}
+#jumble_slider
+{
+	margin-top: 50px;
+	position: relative;
+	text-align: center;
+}
+#instruction
+{
+	font-family: 'Bad Script', cursive;
+	font-size: 1.5em;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+#percentslider{
+	width:50%;
+}
+#sources #sourceA
+{
+	display: block;
+	width: 80%;
+	position: relative;
+	left: 10%;
+}
+
+#sources #sourceB
+{
+	display: block;
+	width: 80%;
+	position: relative;
+	left: 10%;
+}
+
+.dropdown
+{
+position: relative;
+width: 200px;
+left: 50%;
+margin-left: -100px;
+padding-left: 35%;
+}
+
+.centerMe
+{
+	position: relative;
+	text-align: center;
+}
+
+#submit
+{
+	position: relative;
+	min-width:60px;
+	width:10%;
+	height: 30px;
+	margin-left: 45%;
+}
+
+#result
+{
+	margin-top: 30px;
+	font-family: 'Bad Script', cursive;
+	position: relative;
+	width: 80%;
+	margin-left: 10%;
+}
